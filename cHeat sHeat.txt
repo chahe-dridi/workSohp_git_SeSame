@@ -1,0 +1,66 @@
+# ⚙️ Configuration (one-time setup)
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global core.editor "code --wait"     # optional (VS Code as editor)
+
+# 🆕 Initialize or Clone
+git init                            # start a new repo in current folder
+git clone <REMOTE-URL>              # copy existing repo to local machine
+
+# 📂 Staging & Committing
+git status                          # check file states
+git add <file>                      # stage one file
+git add .                           # stage all changes
+git commit -m "message"             # commit staged files
+git commit --amend -m "new message" # edit last commit (before push)
+
+# 🌳 Branching (modern commands)
+git branch                          # list branches
+git branch -a                       # show all (local + remote)
+git switch <branch>                 # switch to an existing branch
+git switch -c <new-branch>          # create & switch to new branch
+git switch -                        # go back to previous branch
+git merge <branch>                  # merge branch into current one
+git branch -d <branch>              # delete local branch
+
+
+# 🌐 Working with Remotes
+git remote -v # list remote repos
+git remote add origin <URL> # link local repo to remote (GitHub)
+git push -u origin main # push main branch & set upstream
+git fetch # get updates from remote
+git pull # fetch + merge
+git push # send commits to remote
+# 🔁 Keeping History Clean
+git log # full commit history
+git log --oneline --graph --all # nice visual summary
+git diff # show unstaged changes
+git show <commit> # show details of one commit
+git rebase origin/main # rebase current branch onto main
+git merge origin/main # merge updates into current branch
+# 🧹 Undo / Restore
+git restore <file> # discard unstaged changes
+git restore --staged <file> # unstage a file
+git reset --soft HEAD~1 # undo last commit (keep changes staged)
+git reset --hard HEAD~1 # undo last commit (discard changes ⚠️)
+git revert <commit> # safely undo specific commit
+
+# 💾 Temporary Saves
+git stash # stash uncommitted changes
+git stash list # list saved stashes
+git stash apply # apply stash (keep in list)
+git stash pop # apply & remove stash
+# 🧭 Tags & Releases
+git tag v1.0.0 # create tag
+git push origin v1.0.0 # push tag to remote
+# 🧩 Helpful Tricks
+git branch -r # list remote branches
+git remote add upstream <URL> # track original repo (for forks)
+git fetch upstream # get latest updates
+git merge upstream/main # sync your fork’s main branch
+# 🪄 Best Practices
+# ✅ Commit small, clear changes: "feat:", "fix:", "chore:"
+# ✅ Use branches: feature/, bugfix/, hotfix/
+# ✅ Pull or fetch often to stay synced
+# ✅ Use .gitignore to skip build or secret files
+# ✅ Never commit sensitive data (API keys, passwords)
